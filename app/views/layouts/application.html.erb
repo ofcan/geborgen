@@ -10,9 +10,17 @@
 
   <body>
     
-    <!-- these are 2 flash messages devise advises by default to put here -->
+    <!-- 2 flash messages devise advises by default to put here -->
     <p class="notice"><%= notice %></p>                                                                                                
     <p class="alert"><%= alert %></p> 
+    
+    <!-- vanilla Devise links ... -->
+    <% if user_signed_in? %>
+      <%= link_to('Log out', destroy_user_session_path, method: :delete) %>
+    <% else %>
+      <%= link_to('Log in', new_user_session_path) %>
+      <%= link_to('Sign up', new_user_registration_path) %>
+    <% end %>
     
     <%= yield %>
     
