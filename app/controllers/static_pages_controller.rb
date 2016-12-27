@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
     @title = "About"
   end
   
+  def home
+    @title = "Home"
+  end
+  
 end
