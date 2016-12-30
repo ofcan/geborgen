@@ -1,7 +1,11 @@
+
+<h1>
+  Edit post
+</h1>
+
 <%= form_for(@post) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new post..." %>
-  </div>
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: "Compose new post...", class: 'form-control' %>
   <%= f.submit "Update post", class: "btn btn-primary" %>
 <% end %>

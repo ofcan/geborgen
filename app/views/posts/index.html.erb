@@ -1,7 +1,6 @@
-<p>
-  this is posts index page
-</p>
-
 <% @posts.each do |p| %>
-  <%= p.content %>
+  <p>
+    <%= p.content %>
+    <%= link_to "Show post", post_path(p)%>
+  </p>
 <% end %>

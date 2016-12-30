@@ -18,8 +18,8 @@ class PostsController < ApplicationController
       flash[:success] = "Post created!"
       redirect_to @post
     else
-      flash[:error] = "Post not created."
-      render 'static_pages/home'
+      flash.now[:error] = "Post not created."
+      render 'new'
     end
   end
   
