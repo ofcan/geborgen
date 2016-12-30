@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_action :check_current_user, only: [:new, :create]
+  before_action :check_current_user, except: [:index, :show]
   
   def index
     @title = 'Posts'
@@ -26,6 +26,26 @@ class PostsController < ApplicationController
   def show
     @title = 'title'
     @post = Post.find(params[:id])
+  end
+  
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      flash[:success] = "Post updated"
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    Post.find(params[:id]).destroy
+    flash[:success] = "Post successfuly deleted."
+    redirect_to root_path
   end
   
     private
