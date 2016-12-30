@@ -9,28 +9,28 @@
   </head>
 
   <body>
-          
-      <!-- 2 flash messages devise advises by default to put here -->
-      <p class="notice"><%= notice %></p>                                                                                                
-      <p class="alert"><%= alert %></p> 
     
+    <div class="container">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
+    </div>
       
-      <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <%= link_to "Sascha Kadek", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "About", about_path %></li>
-                
+            <li><%= link_to "FB", '#' %></li>
+            <li><%= link_to "TW", '#' %></li>
+            <li><%= link_to "tmblr", '#' %></li>
+            <li><%= link_to "insta", '#' %></li>
             <!-- links for logged in user -->
             <% if user_signed_in? %>
               <li><%= link_to('Log out', destroy_user_session_path, method: :delete) %></li>
               <li><%= link_to('New post', new_post_path) %></li>
             <% end %>
-            
           </ul>
         </nav>
       </div>

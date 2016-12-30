@@ -1,6 +1,16 @@
-<% @posts.each do |p| %>
-  <p>
-    <%= p.content %>
-    <%= link_to "Show post", post_path(p)%>
-  </p>
-<% end %>
+
+<div class="row">
+
+  <% @posts.each do |p| %>
+    <div class="post col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <p>
+        <%= p.content %>
+        <%= link_to "Show post", post_path(p)%>
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+      </p>
+    </div>
+  <% end %>
+
+  <%= will_paginate %>
+  
+</div>
