@@ -3,8 +3,8 @@ class PostsController < ApplicationController
   before_action :check_current_user, except: [:index, :show]
   
   def index
-    @title = 'Posts'
-    @posts = Post.paginate(page: params[:page], :per_page => 9)
+    @title = "Sascha Kadek"
+    @posts = Post.all
   end
   
   def new
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     end
   
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:content, :image)
     end
   
 end

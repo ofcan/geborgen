@@ -6,6 +6,7 @@ RSpec.describe Post, type: :model do
     post = Post.new
     expect(post).to respond_to(:user)
     expect(post).to respond_to(:content)
+    expect(post).to respond_to(:image)
   end
   
   it 'should not create a post without a user' do

@@ -4,9 +4,10 @@ source 'https://rubygems.org'
 gem 'devise'
 # Use Bootstrap for making things pretty quick
 gem 'bootstrap-sass', '~> 3.3.6'
-# Use will_paginate for pagination
-gem 'will_paginate', '3.1.0'
-gem 'bootstrap-will_paginate', '0.0.10'
+# Use Paperclip for image uploading (requires ImageMagick as an image processor)
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
+# Use masonry for 'pinterest' look
+gem 'masonry-rails', '~> 0.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
