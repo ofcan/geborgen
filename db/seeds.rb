@@ -11,5 +11,6 @@ user = User.create!(email: 'user@example.com',
                     password_confirmation: 'pass123')
 
 20.times do |n|
-  user.posts.create(content: "post number #{n} content")
+  user.posts.create(title: "post number #{n} title",
+                    content: "Lorem ipsum.")
 end

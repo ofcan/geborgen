@@ -8,7 +8,7 @@
 
  /* variables */
 
-$light-gray: #777;
+$light-gray: #666;
 
   /* header */
   
@@ -29,4 +29,10 @@ $light-gray: #777;
 
 body {
   padding-top: 60px;
+}
+
+  /* misc */
+
+.light-gray {
+  color: $light-gray
 }

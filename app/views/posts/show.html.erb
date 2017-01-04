@@ -1,13 +1,24 @@
-<%= "#{time_ago_in_words(@post.created_at)} ago" %>
-<%= image_tag @post.image.url(:medium) if @post.image.present? %>
-<%= @post.content %>
+<div class="panel panel-default col-lg-9 col-md-9 col-sm-9 col-xs-9">
+  <div class="navbar-right light-gray">
+    <%= "#{time_ago_in_words(@post.created_at)} ago" %>
+  </div>
+  <%= image_tag @post.image.url(:medium) if @post.image.present? %>
+  <div class="panel-body">
+    <h2>
+      <%= @post.title %>
+    </h2>
+    <p>
+      <%= @post.content if @post.content.present? %>
+    </p>
+  </div>
 
-<% if current_user %>
-  <%= link_to edit_post_path(@post) do %>
-    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+  <% if current_user %>
+    <%= link_to edit_post_path(@post) do %>
+      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    <% end %>
+    <%= link_to @post, method: :delete,
+                   data: { confirm: "You sure?" }  do %>
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <% end %>
   <% end %>
-  <%= link_to @post, method: :delete,
-                 data: { confirm: "You sure?" }  do %>
-    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-  <% end %>
-<% end %>
+</div>

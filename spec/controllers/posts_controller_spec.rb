@@ -37,7 +37,7 @@ RSpec.describe PostsController, type: :controller do
     user = User.create(email: 'user@example.com', password: 'pass123', password_confirmation: 'pass123')
     sign_in user
     before_count = Post.count
-    post :create, params: { post: { content: "Lorem ipsum." } }
+    post :create, params: { post: { title: "post title" } }
     after_count = Post.count
     expect(response).to redirect_to(Post.last)
     expect(before_count).to eq(after_count - 1)
@@ -46,7 +46,7 @@ RSpec.describe PostsController, type: :controller do
   it 'should edit post' do
     user = User.create(email: 'user@example.com', password: 'pass123', password_confirmation: 'pass123')
     sign_in user
-    post = user.posts.create(content: "Lorem ipsum.")
+    post = user.posts.create(title: "post title")
     get :edit, params: { id: post.id }
     assert_template 'posts/edit'
   end
@@ -54,7 +54,7 @@ RSpec.describe PostsController, type: :controller do
   it 'should be able to delete posts' do
     user = User.create(email: 'user@example.com', password: 'pass123', password_confirmation: 'pass123')
     sign_in user
-    post = user.posts.create(content: "Lorem ipsum.")
+    post = user.posts.create(title: "post title")
     expect{ 
       delete :destroy, params: { id: post.id }
     }.to change(Post, :count).by(-1)
@@ -63,7 +63,7 @@ RSpec.describe PostsController, type: :controller do
   
   it 'should not be able to delete posts if user is not signed in' do
     user = User.create(email: 'user@example.com', password: 'pass123', password_confirmation: 'pass123')
-    post = user.posts.create(content: "Lorem ipsum.")
+    post = user.posts.create(title: "post title")
     expect{ 
       delete :destroy, params: { id: post.id }
     }.to_not change(Post, :count)

@@ -8,6 +8,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 # Use masonry for 'pinterest' look
 gem 'masonry-rails', '~> 0.2.4'
+# Use fontawesome for awesome icons
+gem 'font-awesome-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -28,6 +30,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+# in order for jQuery and Masonry to work properly
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

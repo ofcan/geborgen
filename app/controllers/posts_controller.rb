@@ -24,8 +24,8 @@ class PostsController < ApplicationController
   end
   
   def show
-    @title = 'title'
     @post = Post.find(params[:id])
+    @title = @post.title
   end
   
   def edit
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     end
   
     def post_params
-      params.require(:post).permit(:content, :image)
+      params.require(:post).permit(:title, :content, :image)
     end
   
 end
