@@ -2,11 +2,20 @@
   /* Posts on index page */
 
 #posts {
-  margin: 0 auto;
 }
 
 .post-box {
   img {
     width: 100%;
+  }
+}
+
+.panel {
+  background-color: #fcfcfc;
+}
+
+.post-box {
+  &:hover {
+    cursor: pointer;
   }
 }

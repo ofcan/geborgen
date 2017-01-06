@@ -3,6 +3,7 @@
 // @import 'masonry/infinitescroll';
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap_customisation";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -29,10 +30,4 @@ $light-gray: #666;
 
 body {
   padding-top: 60px;
-}
-
-  /* misc */
-
-.light-gray {
-  color: $light-gray
 }

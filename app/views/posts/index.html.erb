@@ -1,31 +1,30 @@
 
-<div id="posts">
+<div id="posts" class="transitions-enabled">
 
   <% @posts.each do |p| %>
-    <div class="post-box col-lg-4 col-md-4 col-sm-6 col-xs-12 panel panel-default">
-      <%= image_tag p.image.url(:medium) if p.image.present? %>
-      <div class="panel-body">
-        <div class="navbar-right light-gray">
-          <%= "#{time_ago_in_words(p.created_at)} ago" %>
+    <div class="post-box col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="panel panel-default">
+        <%= image_tag p.image.url(:medium) if p.image.present? %>
+        <div class="panel-body">
+          <h4>
+            <%= link_to p.title, p %>
+          </h4>
+          <p>
+            <%= p.content if p.content.present? %>
+          </p>
+          <%= link_to post_path(p) do %>
+            ... read more <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          <% end %>
+          <% if current_user %>
+            <%= link_to edit_post_path(p) do %>
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            <% end %>
+            <%= link_to p, method: :delete,
+                           data: { confirm: "You sure?" }  do %>
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <% end %>
+          <% end %>
         </div>
-        <h3>
-          <%= link_to p.title, p %>
-        </h3>
-        <p>
-          <%= p.content if p.content.present? %>
-        </p>
-        <%= link_to post_path(p) do %>
-          ... read more <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-        <% end %>
-        <% if current_user %>
-          <%= link_to edit_post_path(p) do %>
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-          <% end %>
-          <%= link_to p, method: :delete,
-                         data: { confirm: "You sure?" }  do %>
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-          <% end %>
-        <% end %>
       </div>
     </div>
   <% end %>

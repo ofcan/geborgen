@@ -2,8 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# Masonry pinterest style layout
 $ ->
   $('#posts').imagesLoaded ->
     $('#posts').masonry
       itemSelector: '.post-box'
-      isFitWidth: true
+      gutter: 20
+
+# Make entire post-box link to post itself
+$(document).ready ->
+  $('.post-box').click ->
+    window.location = $(this).find('a').attr('href')
+    false
+    return
