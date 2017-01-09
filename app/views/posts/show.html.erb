@@ -2,11 +2,13 @@
   <div class="text-muted text-right">
     <%= "#{time_ago_in_words(@post.created_at)} ago" %>
   </div>
-  <%= image_tag @post.image.url(:medium) if @post.image.present? %>
   <div class="panel-body">
-    <h2>
+    <div class="flexible_image_container">
+      <%= image_tag @post.image.url(:medium) if @post.image.present? %>
+    </div>
+    <h1>
       <%= @post.title %>
-    </h2>
+    </h1>
     <p>
       <%= @post.content if @post.content.present? %>
     </p>
