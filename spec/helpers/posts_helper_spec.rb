@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the PostsHelper. For example:
-#
-# describe PostsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe PostsHelper, type: :helper do
+  
+  describe "extract youtube video id" do
+
+    it "should extract youtube video id properly" do
+      link = 'https://www.youtube.com/watch?v=9bZkp7q19f0'
+      link_extract = extract_youtube_video_id(link)
+      expect(link_extract).to eq('9bZkp7q19f0')
+    end
+
+  end
+
 end

@@ -26,7 +26,6 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @title = @post.title
-    @youtube_video_id = extract_youtube_video_id(@post.video_link)
   end
   
   def edit
@@ -59,10 +58,4 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :content, :image, :video_link)
     end
     
-    def extract_youtube_video_id(link)
-      regEx = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/
-      regEx.match(link)
-      return $5
-    end
-  
 end

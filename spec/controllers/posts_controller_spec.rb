@@ -76,7 +76,7 @@ RSpec.describe PostsController, type: :controller do
     user = User.create(email: 'user@example.com', password: 'pass123', password_confirmation: 'pass123')
     post = user.posts.create(title: "post title",
                              video_link: "https://www.youtube.com/watch?v=9bZkp7q19f0")
-    extract_youtube_video_id(post.video_link)
+#    extract_youtube_video_id(post.video_link)
   end
 
 end
