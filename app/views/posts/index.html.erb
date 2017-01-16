@@ -3,22 +3,24 @@
 
   <% @posts.each do |post| %>
     <div class="post-box col-lg-4 col-md-4 col-sm-6 col-xs-12">
-      <div class="panel panel-default">
+      <div class="panel panel-default shadow-on-hover">
         <%= image_tag post.image.url(:medium) if post.image.present? %>
         <% if post.video_link.present? %>
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="https://www.youtube.com/embed/<%= extract_youtube_video_id(post.video_link) %>" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/<%= extract_youtube_video_id(post.video_link) %>?modestbranding=1&autohide=1&showinfo=0" allowfullscreen></iframe>
           </div>
         <% end %>
         <div class="panel-body">
-          <h4>
-            <%= link_to post.title, post %>
-          </h4>
+          <h3>
+            <%= post.title %>
+          </h3>
           <p>
             <%= post.content if post.content.present? %>
           </p>
           <%= link_to post_path(post) do %>
-            ... read more <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            <div class="text-right">
+              read more <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+            </div>
           <% end %>
           <% if current_user %>
             <%= link_to edit_post_path(post) do %>

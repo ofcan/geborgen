@@ -30,7 +30,28 @@ $light-gray: #666;
 
 body {
   padding-top: 60px;
+  background-color: #efefef;
+  color: #cbcbcb;
+}
+
+.panel {
+  margin-top: 15px;
+}
+
+.shadow-on-hover {
+  &:hover {
+    -webkit-box-shadow: 10px 10px 21px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 21px -10px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 21px -10px rgba(0,0,0,0.75);
+  }
 }
 
 .panel-body {
+  background-color: #101010;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #dfdfdf;
+  margin-top: 0px;
+  font-family: "Times New Roman", Times, serif;
 }

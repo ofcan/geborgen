@@ -1,36 +1,41 @@
-<div class="panel panel-default
-            col-lg-8 col-lg-offset-2
+<div class="col-lg-8 col-lg-offset-2
             col-md-8 col-md-offset-2
             col-sm-10 col-sm-offset-1
             col-xs-10 col-xs-offset-1">
 
-  <div class="panel-body">
-    <div class="flexible_image_container">
-      <%= image_tag @post.image.url(:original) if @post.image.present? %>
-    </div>
+  <div class="panel panel-default">
+
+    <% if @post.image.present? %>
+      <div class="flexible_image_container">
+        <%= image_tag @post.image.url(:original) %>
+      </div>
+    <% end %>
+
     <% if @post.video_link.present? %>
       <div class="embed-responsive embed-responsive-16by9">
         <iframe src="https://www.youtube.com/embed/<%= extract_youtube_video_id(@post.video_link) %>" frameborder="0" allowfullscreen></iframe>
       </div>
     <% end %>
 
-  </div>
-    <h1>
-      <%= @post.title %>
-    </h1>
-    <p>
-      <%= @post.content if @post.content.present? %>
-    </p>
-  </div>
+    <div class="panel-body">
+      <h1>
+        <%= @post.title %>
+      </h1>
+      <p>
+        <%= @post.content if @post.content.present? %>
+      </p>
 
-  <% if current_user %>
-    <%= link_to edit_post_path(@post) do %>
-      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-    <% end %>
-    <%= link_to @post, method: :delete,
-                   data: { confirm: "You sure?" }  do %>
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-    <% end %>
-  <% end %>
+      <% if current_user %>
+        <%= link_to edit_post_path(@post) do %>
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <% end %>
+        <%= link_to @post, method: :delete,
+                       data: { confirm: "You sure?" }  do %>
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
 
 </div>

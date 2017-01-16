@@ -1,4 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+#https://www.youtube.com/watch?v=DoxUiqUpkw4 This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -19,5 +19,5 @@ user.posts.create(title: 'Last post with photo',
                   content: 'This is the content from a post with an image.',
                   image: File.new('spec/images_for_testing/test_image_1'))
 
-Post.find(20).update_attributes(video_link: 'https://www.youtube.com/watch?v=B9z8uau1LaI')
-Post.find(15).update_attributes(video_link: 'https://www.youtube.com/watch?v=DoxUiqUpkw4')
+Post.find(20).update_attributes(video_link: 'https://www.youtube.com/watch?v=RM81QMccy_w')
+Post.find(15).update_attributes(video_link: 'https://www.youtube.com/watch?v=xUmndwXJfbk')
