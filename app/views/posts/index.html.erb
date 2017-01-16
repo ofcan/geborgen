@@ -6,8 +6,8 @@
       <div class="panel panel-default">
         <%= image_tag post.image.url(:medium) if post.image.present? %>
         <% if post.video_link.present? %>
-          <div id="iframe_fix">
-            <iframe src="https://www.youtube.com/embed/<%= extract_youtube_video_id(post.video_link) %>" frameborder="0" allowfullscreen></iframe>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="https://www.youtube.com/embed/<%= extract_youtube_video_id(post.video_link) %>" allowfullscreen></iframe>
           </div>
         <% end %>
         <div class="panel-body">
