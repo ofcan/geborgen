@@ -25,6 +25,8 @@
         <%= @post.content if @post.content.present? %>
       </p>
 
+      <%= render 'shared/social_media_buttons' %>
+
       <% if current_user %>
         <%= link_to edit_post_path(@post) do %>
           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
