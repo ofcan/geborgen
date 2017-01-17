@@ -9,6 +9,7 @@ RSpec.describe Post, type: :model do
     expect(post).to respond_to(:content)
     expect(post).to respond_to(:image)
     expect(post).to respond_to(:video_link)
+    expect(post).to respond_to(:subtitle)
   end
   
   it 'should not create a post without a user' do
@@ -26,8 +27,9 @@ RSpec.describe Post, type: :model do
     user = User.create(email: 'sven@example.com', password: 'pass123', password_confirmation: 'pass123')
     post = user.posts.build(title: 'post title',
                             content: 'post content',
-                            #image: File.new('spec/images_for_testing/test_image_1'),
-                            video_link: 'https://www.youtube.com/watch?v=Qw7CUuqFG-g&index=270&list=PL78wc8Lq8LNSs4yIDVQIMYb8nIqJ9Ecd4')
+                            image: File.new('spec/images_for_testing/test_image_1'),
+                            video_link: 'https://www.youtube.com/watch?v=Qw7CUuqFG-g&index=270&list=PL78wc8Lq8LNSs4yIDVQIMYb8nIqJ9Ecd4',
+                            subtitle: 'post subtitle')
     expect(post).to be_valid
   end
   

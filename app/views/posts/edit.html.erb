@@ -7,6 +7,8 @@
   <%= render 'shared/error_messages', object: f.object %>
     <%= f.label :title %>
     <%= f.text_area :title, class: 'form-control' %>
+    <%= f.label :subtitle %>
+    <%= f.text_area :subtitle, class: 'form-control' %>
     <%= f.label :image %>
     <%= f.file_field :image %>
     <%= f.label :content %>

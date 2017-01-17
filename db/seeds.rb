@@ -12,6 +12,7 @@ user = User.create!(email: 'user@example.com',
 
 20.times do |n|
   user.posts.create(title: "post number #{n} title",
+                    subtitle: "post number #{n} subtitle",
                     content: "Lorem ipsum.")
 end
 
