@@ -22,3 +22,4 @@ user.posts.create(title: 'Last post with photo',
 
 Post.find(20).update_attributes(video_link: 'https://www.youtube.com/watch?v=RM81QMccy_w')
 Post.find(15).update_attributes(video_link: 'https://www.youtube.com/watch?v=xUmndwXJfbk')
+Post.find(17).update_attributes(image: File.new('spec/images_for_testing/test_image_2.jpg'))

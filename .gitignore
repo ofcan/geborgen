@@ -22,3 +22,6 @@
 
 # Ignore .swp files vim creates
 .*.sw*
+
+# Ignore images I created with paperclip while testing
+/public/system/**
