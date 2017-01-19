@@ -30,5 +30,21 @@ RSpec.feature "navigation" do
     expect(post.video_link).to eq('Edited post video link.')
     expect(post.subtitle).to eq('Edited post subtitle.')
   end
+
+  it 'should be able to edit post from post show page' do
+    post = @user.posts.create(title: "post title")
+    visit post_path(post)
+    click_link "edit_post_#{post.id}"
+    expect(page).to have_current_path edit_post_path(post)
+  end
+
+  it 'should be able to delete post from post show page' do
+    post = @user.posts.create(title: "post title")
+    visit post_path(post)
+    expect{ 
+      click_link "delete_post_#{post.id}"
+    }.to change(Post, :count).by(-1)
+    expect(page).to have_current_path root_path
+  end
   
 end

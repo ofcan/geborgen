@@ -15,14 +15,26 @@
       <ul class="nav navbar-nav navbar-left pull-left">
         <li>
           <%= link_to about_path do %>
-             About <i class="fa fa-info-circle" aria-hidden="true"></i>
+             About 
           <% end %>
         </li>
 
         <!-- links for logged in user -->
         <% if user_signed_in? %>
-          <li><%= link_to('New post', new_post_path) %></li>
-          <li><%= link_to('Log out', destroy_user_session_path, method: :delete) %></li>
+          <li>
+            <%= link_to '#' do %>
+              <i class="fa fa-lg fa-bar-chart" aria-hidden="true"></i>
+            <% end %>
+          <li>
+            <%= link_to new_post_path do %>
+              <i class="fa fa-lg fa-plus-circle" aria-hidden="true"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-lg fa-sign-out" aria-hidden="true"></i>
+            <% end %>
+          </li>
         <% end %>
       </ul>
         

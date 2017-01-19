@@ -18,6 +18,18 @@
     <% end %>
 
     <div class="panel-body">
+
+      <% if current_user %>
+        <%= link_to edit_post_path(@post), id: "edit_post_#{@post.id}" do %>
+          Edit <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <% end %>
+        <%= link_to @post, method: :delete,
+                       data: { confirm: "You sure?" },
+                       id: "delete_post_#{@post.id}" do %>
+          Delete <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <% end %>
+      <% end %>
+
       <h1>
         <%= @post.title %>
       </h1>
@@ -27,15 +39,6 @@
 
       <%= render 'shared/social_media_buttons' %>
 
-      <% if current_user %>
-        <%= link_to edit_post_path(@post) do %>
-          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-        <% end %>
-        <%= link_to @post, method: :delete,
-                       data: { confirm: "You sure?" }  do %>
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        <% end %>
-      <% end %>
     </div>
 
   </div>

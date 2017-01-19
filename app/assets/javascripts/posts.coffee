@@ -10,8 +10,8 @@ $ ->
       gutter: 20
 
 # Make entire post-box link to post itself
-$(document).ready ->
-  $('.post-box').click ->
-    window.location = $(this).find('a').attr('href')
-    false
-    return
+ $(document).ready ->
+   $('.post-box').click ->
+     window.location = $(this).find('a:contains("Read more")').attr('href')
+     false
+     return
