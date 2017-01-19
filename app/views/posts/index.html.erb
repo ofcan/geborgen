@@ -4,7 +4,7 @@
   <% @posts.each do |post| %>
     <div class="post-box col-lg-4 col-md-4 col-sm-6 col-xs-12">
       <div class="panel panel-default shadow-on-hover">
-        <%= image_tag post.image.url(:medium) if post.image.present? %>
+        <%= image_tag post.image.url(:original) if post.image.present? %>
         <% if post.video_link.present? %>
           <div class="embed-responsive embed-responsive-16by9">
             <iframe src="https://www.youtube.com/embed/<%= extract_youtube_video_id(post.video_link) %>?modestbranding=1&autohide=1&showinfo=0" allowfullscreen></iframe>

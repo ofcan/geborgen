@@ -1,19 +1,40 @@
+<div class="col-lg-8 col-lg-offset-2
+            col-md-8 col-md-offset-2
+            col-sm-10 col-sm-offset-1
+            col-xs-10 col-xs-offset-1">
 
-<h1>
-  Edit post
-</h1>
+  <div class="panel panel-default">
 
-<%= form_for(@post) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-    <%= f.label :title %>
-    <%= f.text_area :title, class: 'form-control' %>
-    <%= f.label :subtitle %>
-    <%= f.text_area :subtitle, class: 'form-control' %>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-    <%= f.label :content %>
-    <%= f.text_area :content, placeholder: "Compose new post...", class: 'form-control' %>
-    <%= f.label :video_link %>
-    <%= f.text_area :video_link, class: 'form-control' %>
-  <%= f.submit "Update post", class: "btn btn-primary" %>
-<% end %>
+    <div class="panel-body">
+
+      <%= form_for(@post) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <% if @post.image.present? %>
+          <div class="flexible_image_container">
+            <%= image_tag @post.image.url(:original) %>
+          </div>
+        <% end %>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+        <% if @post.video_link.present? %>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="https://www.youtube.com/embed/<%= extract_youtube_video_id(@post.video_link) %>" frameborder="0" allowfullscreen></iframe>
+          </div>
+        <% end %>
+        <%= f.label :video_link %>
+        <%= f.text_field :video_link, class: 'form-control' %>
+        <hr/>
+        <h1>Edit "<%= @post.title %>"</h1>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.label :subtitle %>
+        <%= f.text_field :subtitle, class: 'form-control' %>
+        <hr/>
+        <%= f.label :content %>
+        <%= f.text_area :content, placeholder: "Compose new post...", class: 'form-control' %>
+        <%= f.submit "Update post", class: "btn btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
