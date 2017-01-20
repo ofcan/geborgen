@@ -16,10 +16,8 @@ user = User.create!(email: 'user@example.com',
                     content: "Lorem ipsum.")
 end
 
-user.posts.create(title: 'Last post with photo',
-                  content: 'This is the content from a post with an image.',
-                  image: File.new('spec/images_for_testing/test_image_1'))
-
 Post.find(20).update_attributes(video_link: 'https://www.youtube.com/watch?v=RM81QMccy_w')
-Post.find(15).update_attributes(video_link: 'https://www.youtube.com/watch?v=xUmndwXJfbk')
-Post.find(17).update_attributes(image: File.new('spec/images_for_testing/test_image_2.jpg'))
+Post.find(19).update_attributes(image: File.new('spec/images_for_testing/test_image_1.gif'))
+Post.find(18).update_attributes(image: File.new('spec/images_for_testing/test_image_2.gif'))
+Post.find(17).update_attributes(video_link: 'https://www.youtube.com/watch?v=xUmndwXJfbk')
+Post.find(16).update_attributes(image: File.new('spec/images_for_testing/test_image_3.gif'))
